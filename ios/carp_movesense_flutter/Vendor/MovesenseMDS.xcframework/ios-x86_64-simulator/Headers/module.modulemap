@@ -1,0 +1,4 @@
+module MovesenseMDS {
+  header "MDS.h"
+  export *
+}
