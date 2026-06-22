@@ -9,7 +9,6 @@ import io.flutter.embedding.engine.plugins.FlutterPlugin
 /** Android entry point for the CARP Movesense Flutter plugin. */
 class CarpMovesenseFlutterPlugin :
     FlutterPlugin,
-    CarpMovesenseHostApi,
     CarpMovesenseScanHostApi,
     CarpMovesenseConnectionHostApi,
     CarpMovesenseRequestHostApi,
@@ -32,7 +31,6 @@ class CarpMovesenseFlutterPlugin :
         requests = MovesenseRequestController({ mds }, callbacks)
         subscriptions = MovesenseSubscriptionController({ mds }, callbacks)
 
-        CarpMovesenseHostApi.setUp(binding.binaryMessenger, this)
         CarpMovesenseScanHostApi.setUp(binding.binaryMessenger, this)
         CarpMovesenseConnectionHostApi.setUp(binding.binaryMessenger, this)
         CarpMovesenseRequestHostApi.setUp(binding.binaryMessenger, this)
@@ -66,7 +64,6 @@ class CarpMovesenseFlutterPlugin :
         CarpMovesenseRequestHostApi.setUp(binding.binaryMessenger, null)
         CarpMovesenseConnectionHostApi.setUp(binding.binaryMessenger, null)
         CarpMovesenseScanHostApi.setUp(binding.binaryMessenger, null)
-        CarpMovesenseHostApi.setUp(binding.binaryMessenger, null)
 
         scanner?.setScanEnabled(false)
         subscriptions?.unsubscribeAll()

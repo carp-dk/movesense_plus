@@ -8,6 +8,9 @@ import 'movesense_models.dart';
 /// The client exposes package-owned Dart types. Pigeon DTOs stay behind the
 /// platform interface so generator changes do not leak into consuming apps.
 class CarpMovesenseFlutter {
+  /// Client for MDS operations.
+  ///
+  /// Factory constructor that uses the default platform implementation.
   CarpMovesenseFlutter({CarpMovesenseFlutterPlatform? platform}) : _platform = platform ?? CarpMovesenseFlutterPlatform.instance;
 
   final CarpMovesenseFlutterPlatform _platform;
