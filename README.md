@@ -26,7 +26,7 @@ The `example/` folder contains a simple Flutter app that demonstrates the plugin
 | <img src="images/01_scan.PNG" width="160"/> | <img src="images/02_device.PNG" width="160"/> | <img src="images/03_request.PNG" width="160"/> | <img src="images/04_subscriptions.PNG" width="160"/> | <img src="images/05_logs.PNG" width="160"/> |
 
 
-## Contribution
+# Contribution
 
 The plugin uses [Pigeon](https://pub.dev/packages/pigeon) for typed Dart/native transport. So for any changes to the native code, run `tool/generate_pigeon.sh` to regenerate the bindings after making changes.
 
@@ -55,7 +55,7 @@ The original callback message schema has been ported to
 `protos/carp_movesense_mds.proto` for reference and interoperability. Runtime
 Flutter/native transport uses Pigeon DTOs instead of protobuf byte arrays.
 
-## Movesense SDKs
+# Movesense SDKs
 
 Android uses the vendored Movesense `mdslib` AAR under `android/vendor`.
 
@@ -65,3 +65,7 @@ You can get the compiled Movesense SDK from cloning the [movesense-mobile-lib](h
 
 macOS registers the same Pigeon channels but returns unsupported errors for
 Movesense operations because no macOS Movesense MDS binary is bundled.
+
+# Credits
+
+The original `MDSFlutter` implementation is from `https://github.com/tugberka/mdsflutter` and a forked version which contained some improvements at `https://github.com/petri-lipponen-movesense/mdsflutter` was used
