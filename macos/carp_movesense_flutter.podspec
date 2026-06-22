@@ -4,14 +4,15 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'carp_movesense_flutter'
-  s.version          = '0.0.1'
-  s.summary          = 'A new Flutter plugin project.'
+  s.version          = '0.1.0'
+  s.summary          = 'CARP Movesense Flutter Plugin'
   s.description      = <<-DESC
-A new Flutter plugin project.
+CARP Movesense Flutter plugin. macOS registers typed Pigeon channels and
+returns unsupported errors because no macOS Movesense MDS binary is bundled.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://carp.dk'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'Copenhagen Research Platform' => 'support@carp.dk' }
 
   s.source           = { :path => '.' }
   s.source_files = 'carp_movesense_flutter/Sources/carp_movesense_flutter/**/*'
@@ -24,7 +25,7 @@ A new Flutter plugin project.
 
   s.dependency 'FlutterMacOS'
 
-  s.platform = :osx, '10.11'
+  s.platform = :osx, '12.0'
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   s.swift_version = '5.0'
 end

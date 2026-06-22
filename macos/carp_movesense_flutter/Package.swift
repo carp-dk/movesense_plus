@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "carp_movesense_flutter",
     platforms: [
-        .macOS("10.15")
+        .macOS("12.0")
     ],
     products: [
         .library(name: "carp-movesense-flutter", targets: ["carp_movesense_flutter"])

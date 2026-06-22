@@ -1,55 +1,43 @@
-import 'package:carp_movesense_flutter/carp_movesense_flutter_method_channel.dart';
+import 'package:carp_movesense_flutter/carp_movesense_flutter.dart';
 import 'package:carp_movesense_flutter/carp_movesense_flutter_pigeon.dart';
-import 'package:carp_movesense_flutter/src/pigeon/carp_movesense_api.g.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 class FakeCarpMovesenseHostGateway implements CarpMovesenseHostGateway {
   @override
-  Future<String> getPlatformVersion() async => '42';
+  Future<void> setScanEnabled(bool enabled) async {}
+
+  @override
+  Future<void> setConnection(String address, bool connect) async {}
+
+  @override
+  Future<void> sendRequest(int requestId, MdsRequestMethod method, String uri, String contract) async {}
+
+  @override
+  Future<void> subscribe(int requestId, int subscriptionId, String uri, String contract) async {}
+
+  @override
+  Future<void> unsubscribe(int subscriptionId) async {}
 }
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  test('Pigeon adapter delegates to the host gateway', () async {
-    final platform = PigeonCarpMovesenseFlutter(
-      gateway: FakeCarpMovesenseHostGateway(),
-    );
+  // test('generated Pigeon host API uses the expected channel contract', () async {
+  //   final messenger = TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
+  //   final channel = BasicMessageChannel<Object?>(
+  //     'dev.flutter.pigeon.carp_movesense_flutter.CarpMovesenseHostApi.getPlatformVersion',
+  //     CarpMovesenseHostApi.pigeonChannelCodec,
+  //     binaryMessenger: messenger,
+  //   );
+  //   messenger.setMockDecodedMessageHandler<Object?>(channel, (_) async => <Object?>['42']);
 
-    expect(await platform.getPlatformVersion(), '42');
-  });
+  //   addTearDown(() {
+  //     messenger.setMockDecodedMessageHandler<Object?>(channel, null);
+  //   });
 
-  test('generated Pigeon host API uses the expected channel contract', () async {
-    final messenger =
-        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
-    final channel = BasicMessageChannel<Object?>(
-      'dev.flutter.pigeon.carp_movesense_flutter.CarpMovesenseHostApi.getPlatformVersion',
-      CarpMovesenseHostApi.pigeonChannelCodec,
-      binaryMessenger: messenger,
-    );
-    messenger.setMockDecodedMessageHandler<Object?>(
-      channel,
-      (_) async => <Object?>['42'],
-    );
+  //   final api = CarpMovesenseHostApi(binaryMessenger: messenger);
 
-    addTearDown(() {
-      messenger.setMockDecodedMessageHandler<Object?>(channel, null);
-    });
-
-    final api = CarpMovesenseHostApi(binaryMessenger: messenger);
-
-    expect(await api.getPlatformVersion(), '42');
-  });
-
-  test(
-    'deprecated MethodChannel compatibility wrapper uses Pigeon transport',
-    () async {
-      final platform = MethodChannelCarpMovesenseFlutter(
-        gateway: FakeCarpMovesenseHostGateway(),
-      );
-
-      expect(await platform.getPlatformVersion(), '42');
-    },
-  );
+  //   expect(await api.getPlatformVersion(), '42');
+  // });
 }

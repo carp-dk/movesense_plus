@@ -2,10 +2,10 @@ import Flutter
 import UIKit
 import XCTest
 
+@testable import carp_movesense_flutter
+
 // If your plugin has been explicitly set to "type: .dynamic" in the Package.swift,
 // you will need to add your plugin as a dependency of RunnerTests within Xcode.
-
-@testable import carp_movesense_flutter
 
 // This demonstrates a simple unit test of the Swift portion of this plugin's implementation.
 //
@@ -13,17 +13,17 @@ import XCTest
 
 class RunnerTests: XCTestCase {
 
-  func testGetPlatformVersion() {
-    let plugin = CarpMovesenseFlutterPlugin()
+    // func testGetPlatformVersion() {
+    //   let plugin = CarpMovesenseFlutterPlugin()
 
-    let call = FlutterMethodCall(methodName: "getPlatformVersion", arguments: [])
+    //   let call = FlutterMethodCall(methodName: "getPlatformVersion", arguments: [])
 
-    let resultExpectation = expectation(description: "result block must be called.")
-    plugin.handle(call) { result in
-      XCTAssertEqual(result as! String, "iOS " + UIDevice.current.systemVersion)
-      resultExpectation.fulfill()
-    }
-    waitForExpectations(timeout: 1)
-  }
+    //   let resultExpectation = expectation(description: "result block must be called.")
+    //   plugin.handle(call) { result in
+    //     XCTAssertEqual(result as! String, "iOS " + UIDevice.current.systemVersion)
+    //     resultExpectation.fulfill()
+    //   }
+    //   waitForExpectations(timeout: 1)
+    // }
 
 }
