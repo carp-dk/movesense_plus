@@ -61,6 +61,7 @@ migrate_working_dir/
 /packages/flutter/coverage/
 version
 analysis_benchmark.json
+_CodeSignature/
 
 # packages file containing multi-root paths
 .packages.generated
