@@ -1,14 +1,14 @@
 import Foundation
 import MovesenseMDS
 
-final class IosMdsController {
-    private let scanner: IosBleScanner
-    private let callbacks: MdsDartCallbacks
+final class IOSMDSController {
+    private let scanner: IOSBleScanner
+    private let callbacks: MDSDartCallbacks
     private let mds = MDSWrapper()
     private var subscriptions = [Int64: String]()
     private var serialToAddress = [String: String]()
 
-    init(scanner: IosBleScanner, callbacks: MdsDartCallbacks) {
+    init(scanner: IOSBleScanner, callbacks: MDSDartCallbacks) {
         self.scanner = scanner
         self.callbacks = callbacks
         subscribeConnectedDevices()
@@ -105,7 +105,7 @@ final class IosMdsController {
     }
 }
 
-extension IosMdsController {
+extension IOSMDSController {
     fileprivate func subscribeConnectedDevices() {
         mds.doSubscribe(
             "MDS/ConnectedDevices", contract: [:], response: { _ in },

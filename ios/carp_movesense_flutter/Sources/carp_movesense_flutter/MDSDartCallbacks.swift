@@ -1,7 +1,7 @@
 import Flutter
 import Foundation
 
-final class MdsDartCallbacks {
+final class MDSDartCallbacks {
     private let scanDeviceApi: CarpMovesenseScanDeviceFlutterApi
     private let scanErrorApi: CarpMovesenseScanErrorFlutterApi
     private let connectionApi: CarpMovesenseConnectionFlutterApi

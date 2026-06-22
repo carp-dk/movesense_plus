@@ -6,13 +6,13 @@ private let movesenseServices = [
     CBUUID(string: "0000FDF3-0000-1000-8000-00805F9B34FB"),
 ]
 
-final class IosBleScanner: NSObject, CBCentralManagerDelegate {
-    private let callbacks: MdsDartCallbacks
+final class IOSBleScanner: NSObject, CBCentralManagerDelegate {
+    private let callbacks: MDSDartCallbacks
     private var centralManager: CBCentralManager!
     private var pendingScan = false
     private var peripherals = [UUID: CBPeripheral]()
 
-    init(callbacks: MdsDartCallbacks) {
+    init(callbacks: MDSDartCallbacks) {
         self.callbacks = callbacks
         super.init()
         centralManager = CBCentralManager(delegate: self, queue: nil)

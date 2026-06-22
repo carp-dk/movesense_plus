@@ -1,21 +1,20 @@
 import Flutter
 import UIKit
 
-public class CarpMovesenseFlutterPlugin: NSObject, FlutterPlugin, CarpMovesenseHostApi,
+public class CarpMovesenseFlutterPlugin: NSObject, FlutterPlugin,
     CarpMovesenseScanHostApi, CarpMovesenseConnectionHostApi, CarpMovesenseRequestHostApi,
     CarpMovesenseSubscriptionHostApi, CarpMovesenseSubscriptionControlHostApi
 {
-    private var scanner: IosBleScanner?
-    private var mds: IosMdsController?
+    private var scanner: IOSBleScanner?
+    private var mds: IOSMDSController?
 
     public static func register(with registrar: FlutterPluginRegistrar) {
-        let callbacks = MdsDartCallbacks(binaryMessenger: registrar.messenger())
-        let scanner = IosBleScanner(callbacks: callbacks)
+        let callbacks = MDSDartCallbacks(binaryMessenger: registrar.messenger())
+        let scanner = IOSBleScanner(callbacks: callbacks)
         let instance = CarpMovesenseFlutterPlugin()
         instance.scanner = scanner
-        instance.mds = IosMdsController(scanner: scanner, callbacks: callbacks)
+        instance.mds = IOSMDSController(scanner: scanner, callbacks: callbacks)
 
-        CarpMovesenseHostApiSetup.setUp(binaryMessenger: registrar.messenger(), api: instance)
         CarpMovesenseScanHostApiSetup.setUp(binaryMessenger: registrar.messenger(), api: instance)
         CarpMovesenseConnectionHostApiSetup.setUp(
             binaryMessenger: registrar.messenger(), api: instance)
@@ -37,7 +36,6 @@ public class CarpMovesenseFlutterPlugin: NSObject, FlutterPlugin, CarpMovesenseH
         CarpMovesenseRequestHostApiSetup.setUp(binaryMessenger: registrar.messenger(), api: nil)
         CarpMovesenseConnectionHostApiSetup.setUp(binaryMessenger: registrar.messenger(), api: nil)
         CarpMovesenseScanHostApiSetup.setUp(binaryMessenger: registrar.messenger(), api: nil)
-        CarpMovesenseHostApiSetup.setUp(binaryMessenger: registrar.messenger(), api: nil)
     }
 
     func setScanEnabled(enabled: Bool) throws {
