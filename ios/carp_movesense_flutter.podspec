@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'carp_movesense_flutter'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'CARP Movesense Flutter Plugin'
   s.description      = <<-DESC
 A flutter plugin with direct wrapper around the Movesense SDK.
