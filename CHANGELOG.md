@@ -1,3 +1,8 @@
+
+## 0.1.1
+
+* Lower minimum SDK version to `3.12.0`
+
 ## 0.1.0
 
 * Ported MDSFlutter
