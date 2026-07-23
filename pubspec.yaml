@@ -1,7 +1,9 @@
 name: carp_movesense_flutter
 description: "CARP Movesense Flutter Plugin"
 version: 0.1.0
-homepage:
+homepage: https://github.com/carp-dk/carp-movesense-flutter
+repository: https://github.com/carp-dk/carp-movesense-flutter
+issue_tracker: https://github.com/carp-dk/carp-movesense-flutter/issues
 
 environment:
   sdk: ^3.12.2
