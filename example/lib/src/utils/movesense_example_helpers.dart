@@ -7,7 +7,7 @@
 
 import 'dart:convert';
 
-import 'package:carp_movesense_flutter/carp_movesense_flutter.dart';
+import 'package:movesense_plus/movesense_plus.dart';
 
 /// Builds a full MDS request URI from a [serial] and resource path.
 ///

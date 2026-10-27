@@ -9,7 +9,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:developer' as developer;
 
-import 'package:carp_movesense_flutter/carp_movesense_flutter.dart';
+import 'package:movesense_plus/movesense_plus.dart';
 import 'package:flutter/foundation.dart';
 
 import '../models/connected_device_history_entry.dart';
@@ -28,8 +28,8 @@ part 'movesense_example_controller_subscriptions.dart';
 /// Coordinates plugin calls and exposes state for the tester UI.
 class MovesenseExampleController extends ChangeNotifier {
   /// Creates a controller backed by [plugin] or the default plugin instance.
-  MovesenseExampleController({CarpMovesenseFlutter? plugin})
-    : _plugin = plugin ?? CarpMovesenseFlutter() {
+  MovesenseExampleController({Movesense? plugin})
+    : _plugin = plugin ?? Movesense() {
     _connectionSubscription = _plugin.connectionEvents.listen(
       _handleConnectionEvent,
       onError: (Object error, StackTrace stackTrace) {
@@ -39,7 +39,7 @@ class MovesenseExampleController extends ChangeNotifier {
     _log('Movesense example controller initialized.');
   }
 
-  final CarpMovesenseFlutter _plugin;
+  final Movesense _plugin;
   final Map<String, ExampleMovesenseDevice> _devices = {};
   final List<LogEntry> _logs = <LogEntry>[];
   final Map<String, StreamSubscription<String>> _subscriptions =

@@ -4,7 +4,7 @@
 // - `RequestTesterView`, request form and result state.
 // - `_ResponseCard`, response display.
 
-import 'package:carp_movesense_flutter/carp_movesense_flutter.dart';
+import 'package:movesense_plus/movesense_plus.dart';
 import 'package:flutter/material.dart';
 
 import '../state/movesense_example_scope.dart';
