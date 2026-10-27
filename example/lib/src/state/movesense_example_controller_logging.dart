@@ -41,7 +41,7 @@ extension MovesenseExampleControllerLogging on MovesenseExampleController {
 
     developer.log(
       message,
-      name: 'carp.movesense.example',
+      name: 'movesense_plus.example',
       error: error,
       stackTrace: stackTrace,
     );

@@ -11,9 +11,11 @@ enum MdsRequestMethod {
   final String nativeName;
 }
 
-/// A Movesense peripheral discovered by BLE scanning.
-class MovesenseDevice {
-  const MovesenseDevice({this.name, required this.address});
+/// A Movesense peripheral discovered by BLE scanning, as reported by the platform.
+///
+/// `Movesense.scanResults` wraps these in `MovesenseDevice` objects.
+class MovesenseScanResult {
+  const MovesenseScanResult({this.name, required this.address});
 
   /// BLE advertisement name, when available.
   final String? name;

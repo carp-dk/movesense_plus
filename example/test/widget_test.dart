@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:carp_movesense_flutter_example/main.dart';
+import 'package:movesense_plus_example/main.dart';
 
 void main() {
   testWidgets('builds routed tab tester shell', (WidgetTester tester) async {

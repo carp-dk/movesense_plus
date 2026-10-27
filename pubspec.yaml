@@ -1,12 +1,15 @@
-name: carp_movesense_flutter
-description: "CARP Movesense Flutter Plugin"
-version: 0.1.1
-homepage: https://github.com/carp-dk/carp-movesense-flutter
-repository: https://github.com/carp-dk/carp-movesense-flutter
-issue_tracker: https://github.com/carp-dk/carp-movesense-flutter/issues
+name: movesense_plus
+description: "A Flutter plugin for Movesense sensors. Bundles the Movesense MDS SDK and provides scanning, connection, typed sensor data streams and raw MDS requests."
+version: 2.0.0
+homepage: https://github.com/carp-dk/movesense_plus
+repository: https://github.com/carp-dk/movesense_plus
+issue_tracker: https://github.com/carp-dk/movesense_plus/issues
 topics:
   - carp
   - movesense
+  - bluetooth
+  - sensors
+  - health
 
 environment:
   sdk: ^3.12.0
@@ -42,12 +45,12 @@ flutter:
   plugin:
     platforms:
       android:
-        package: dk.carp.carp_movesense_flutter
-        pluginClass: CarpMovesenseFlutterPlugin
+        package: dk.carp.movesense_plus
+        pluginClass: MovesensePlusPlugin
       ios:
-        pluginClass: CarpMovesenseFlutterPlugin
+        pluginClass: MovesensePlusPlugin
       macos:
-        pluginClass: CarpMovesenseFlutterPlugin
+        pluginClass: MovesensePlusPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

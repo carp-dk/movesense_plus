@@ -1,1 +1,1 @@
-rootProject.name = "carp_movesense_flutter"
+rootProject.name = "movesense_plus"

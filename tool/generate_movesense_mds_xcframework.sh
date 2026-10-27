@@ -5,8 +5,8 @@ usage() {
   cat <<'USAGE'
 Generate the MovesenseMDS.xcframework used by the iOS SwiftPM plugin target.
 
-Defaults assume this script is run from the carp_movesense_flutter plugin
-checkout inside the wider carp-movesense-flutter workspace.
+Defaults assume this script is run from the movesense_plus plugin
+checkout inside the wider movesense-plus workspace.
 
 Usage:
   tool/generate_movesense_mds_xcframework.sh [options]
@@ -28,7 +28,7 @@ workspace_dir="$(cd "$plugin_dir/.." && pwd)"
 
 source_lib="$workspace_dir/movesense-mobile-lib/IOS/Movesense/Release-iphoneos/libmds.a"
 source_headers="$workspace_dir/movesense-mobile-lib/IOS/Movesense/include"
-output_path="$plugin_dir/ios/carp_movesense_flutter/Vendor/MovesenseMDS.xcframework"
+output_path="$plugin_dir/ios/movesense_plus/Vendor/MovesenseMDS.xcframework"
 sign_identity=""
 
 while [[ $# -gt 0 ]]; do

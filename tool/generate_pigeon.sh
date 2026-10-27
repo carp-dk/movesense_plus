@@ -8,9 +8,9 @@ cd "$plugin_dir"
 
 mkdir -p \
   "$plugin_dir/lib/src/gen/pigeon" \
-  "$plugin_dir/android/src/main/kotlin/dk/carp/carp_movesense_flutter/gen" \
-  "$plugin_dir/ios/carp_movesense_flutter/Sources/carp_movesense_flutter/gen" \
-  "$plugin_dir/macos/carp_movesense_flutter/Sources/carp_movesense_flutter/gen"
+  "$plugin_dir/android/src/main/kotlin/dk/carp/movesense_plus/gen" \
+  "$plugin_dir/ios/movesense_plus/Sources/movesense_plus/gen" \
+  "$plugin_dir/macos/movesense_plus/Sources/movesense_plus/gen"
 
 run_pigeon() {
   local input_file="$1"
@@ -23,16 +23,16 @@ run_pigeon() {
 }
 
 inputs=(
-  "pigeons/carp_movesense_scan_host_api.dart"
-  "pigeons/carp_movesense_scan_device_api.dart"
-  "pigeons/carp_movesense_scan_error_api.dart"
-  "pigeons/carp_movesense_connection_host_api.dart"
-  "pigeons/carp_movesense_connection_event_api.dart"
-  "pigeons/carp_movesense_request_host_api.dart"
-  "pigeons/carp_movesense_request_event_api.dart"
-  "pigeons/carp_movesense_subscription_host_api.dart"
-  "pigeons/carp_movesense_subscription_control_api.dart"
-  "pigeons/carp_movesense_subscription_event_api.dart"
+  "pigeons/movesense_scan_host_api.dart"
+  "pigeons/movesense_scan_device_api.dart"
+  "pigeons/movesense_scan_error_api.dart"
+  "pigeons/movesense_connection_host_api.dart"
+  "pigeons/movesense_connection_event_api.dart"
+  "pigeons/movesense_request_host_api.dart"
+  "pigeons/movesense_request_event_api.dart"
+  "pigeons/movesense_subscription_host_api.dart"
+  "pigeons/movesense_subscription_control_api.dart"
+  "pigeons/movesense_subscription_event_api.dart"
 )
 
 for input in "${inputs[@]}"; do
@@ -40,18 +40,18 @@ for input in "${inputs[@]}"; do
 done
 
 for generated in \
-  PigeonCarpMovesenseScanHostApi.g.swift \
-  PigeonCarpMovesenseScanDeviceApi.g.swift \
-  PigeonCarpMovesenseScanErrorApi.g.swift \
-  PigeonCarpMovesenseConnectionHostApi.g.swift \
-  PigeonCarpMovesenseConnectionEventApi.g.swift \
-  PigeonCarpMovesenseRequestHostApi.g.swift \
-  PigeonCarpMovesenseRequestEventApi.g.swift \
-  PigeonCarpMovesenseSubscriptionHostApi.g.swift \
-  PigeonCarpMovesenseSubscriptionControlApi.g.swift \
-  PigeonCarpMovesenseSubscriptionEventApi.g.swift
+  PigeonMovesenseScanHostApi.g.swift \
+  PigeonMovesenseScanDeviceApi.g.swift \
+  PigeonMovesenseScanErrorApi.g.swift \
+  PigeonMovesenseConnectionHostApi.g.swift \
+  PigeonMovesenseConnectionEventApi.g.swift \
+  PigeonMovesenseRequestHostApi.g.swift \
+  PigeonMovesenseRequestEventApi.g.swift \
+  PigeonMovesenseSubscriptionHostApi.g.swift \
+  PigeonMovesenseSubscriptionControlApi.g.swift \
+  PigeonMovesenseSubscriptionEventApi.g.swift
 do
   cp \
-    "$plugin_dir/ios/carp_movesense_flutter/Sources/carp_movesense_flutter/gen/$generated" \
-    "$plugin_dir/macos/carp_movesense_flutter/Sources/carp_movesense_flutter/gen/$generated"
+    "$plugin_dir/ios/movesense_plus/Sources/movesense_plus/gen/$generated" \
+    "$plugin_dir/macos/movesense_plus/Sources/movesense_plus/gen/$generated"
 done

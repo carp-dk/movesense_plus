@@ -2,7 +2,7 @@ import Flutter
 import UIKit
 import XCTest
 
-@testable import carp_movesense_flutter
+@testable import movesense_plus
 
 // If your plugin has been explicitly set to "type: .dynamic" in the Package.swift,
 // you will need to add your plugin as a dependency of RunnerTests within Xcode.
@@ -14,7 +14,7 @@ import XCTest
 class RunnerTests: XCTestCase {
 
     // func testGetPlatformVersion() {
-    //   let plugin = CarpMovesenseFlutterPlugin()
+    //   let plugin = MovesensePlusPlugin()
 
     //   let call = FlutterMethodCall(methodName: "getPlatformVersion", arguments: [])
 
