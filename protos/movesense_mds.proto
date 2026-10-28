@@ -1,0 +1,35 @@
+/**
+ *
+ * Code by https://github.com/tugberka/mdsflutter
+ *
+ */
+syntax = "proto3";
+
+package dk.carp.movesense;
+
+option java_outer_classname = "MovesenseMdsProtos";
+option java_package = "dk.carp.movesense_plus.proto";
+option objc_class_prefix = "CMP";
+
+message RequestResult {
+  int32 request_id = 1;
+  int32 status_code = 2;
+  string data = 3;
+}
+
+message RequestError {
+  int32 request_id = 1;
+  int32 status_code = 2;
+  string error = 3;
+}
+
+message Notification {
+  int32 subscription_id = 1;
+  string data = 2;
+}
+
+message NotificationError {
+  int32 subscription_id = 1;
+  int32 status_code = 2;
+  string error = 3;
+}

@@ -21,7 +21,7 @@
         android:required="false" />
 
     <application
-        android:label="carp_movesense_flutter_example"
+        android:label="movesense_plus_example"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

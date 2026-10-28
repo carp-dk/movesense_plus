@@ -1,5 +1,5 @@
-group = "dk.carp.carp_movesense_flutter"
-version = "0.1.0"
+group = "dk.carp.movesense_plus"
+version = "2.0.0"
 
 buildscript {
     val kotlinVersion = "2.3.20"
@@ -37,7 +37,7 @@ plugins {
 }
 
 android {
-    namespace = "dk.carp.carp_movesense_flutter"
+    namespace = "dk.carp.movesense_plus"
 
     compileSdk = 36
 

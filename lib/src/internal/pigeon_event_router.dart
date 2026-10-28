@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import '../movesense_models.dart';
-import '../gen/pigeon/carp_movesense_connection_event_api.g.dart' as connection;
-import '../gen/pigeon/carp_movesense_request_event_api.g.dart' as request;
-import '../gen/pigeon/carp_movesense_scan_device_api.g.dart' as scan_device;
-import '../gen/pigeon/carp_movesense_scan_error_api.g.dart' as scan_error;
-import '../gen/pigeon/carp_movesense_subscription_event_api.g.dart'
+import '../gen/pigeon/movesense_connection_event_api.g.dart' as connection;
+import '../gen/pigeon/movesense_request_event_api.g.dart' as request;
+import '../gen/pigeon/movesense_scan_device_api.g.dart' as scan_device;
+import '../gen/pigeon/movesense_scan_error_api.g.dart' as scan_error;
+import '../gen/pigeon/movesense_subscription_event_api.g.dart'
     as subscription;
 
 class PendingMdsRequest {
@@ -42,7 +42,7 @@ class PigeonEventRouter {
 
   static final PigeonEventRouter instance = PigeonEventRouter._();
 
-  final _scanController = StreamController<MovesenseDevice>.broadcast();
+  final _scanController = StreamController<MovesenseScanResult>.broadcast();
   final _connectionController =
       StreamController<MovesenseConnectionEvent>.broadcast();
   final _requests = <int, Completer<MdsResponse>>{};
@@ -52,7 +52,7 @@ class PigeonEventRouter {
   int _nextSubscriptionId = 0;
   bool _attached = false;
 
-  Stream<MovesenseDevice> get scanResults => _scanController.stream;
+  Stream<MovesenseScanResult> get scanResults => _scanController.stream;
 
   Stream<MovesenseConnectionEvent> get connectionEvents {
     return _connectionController.stream;
@@ -60,11 +60,11 @@ class PigeonEventRouter {
 
   void attach() {
     if (_attached) return;
-    scan_device.CarpMovesenseScanDeviceFlutterApi.setUp(_ScanDeviceApi(this));
-    scan_error.CarpMovesenseScanErrorFlutterApi.setUp(_ScanErrorApi(this));
-    connection.CarpMovesenseConnectionFlutterApi.setUp(_ConnectionApi(this));
-    request.CarpMovesenseRequestFlutterApi.setUp(_RequestApi(this));
-    subscription.CarpMovesenseSubscriptionFlutterApi.setUp(
+    scan_device.MovesenseScanDeviceFlutterApi.setUp(_ScanDeviceApi(this));
+    scan_error.MovesenseScanErrorFlutterApi.setUp(_ScanErrorApi(this));
+    connection.MovesenseConnectionFlutterApi.setUp(_ConnectionApi(this));
+    request.MovesenseRequestFlutterApi.setUp(_RequestApi(this));
+    subscription.MovesenseSubscriptionFlutterApi.setUp(
       _SubscriptionApi(this),
     );
     _attached = true;
@@ -99,7 +99,7 @@ class PigeonEventRouter {
   }
 }
 
-class _ScanDeviceApi implements scan_device.CarpMovesenseScanDeviceFlutterApi {
+class _ScanDeviceApi implements scan_device.MovesenseScanDeviceFlutterApi {
   _ScanDeviceApi(this.router);
 
   final PigeonEventRouter router;
@@ -107,12 +107,12 @@ class _ScanDeviceApi implements scan_device.CarpMovesenseScanDeviceFlutterApi {
   @override
   void onScanDevice(scan_device.NativeScanDevice device) {
     router._scanController.add(
-      MovesenseDevice(name: device.name, address: device.address),
+      MovesenseScanResult(name: device.name, address: device.address),
     );
   }
 }
 
-class _ScanErrorApi implements scan_error.CarpMovesenseScanErrorFlutterApi {
+class _ScanErrorApi implements scan_error.MovesenseScanErrorFlutterApi {
   _ScanErrorApi(this.router);
 
   final PigeonEventRouter router;
@@ -123,7 +123,7 @@ class _ScanErrorApi implements scan_error.CarpMovesenseScanErrorFlutterApi {
   }
 }
 
-class _ConnectionApi implements connection.CarpMovesenseConnectionFlutterApi {
+class _ConnectionApi implements connection.MovesenseConnectionFlutterApi {
   _ConnectionApi(this.router);
 
   final PigeonEventRouter router;
@@ -141,7 +141,7 @@ class _ConnectionApi implements connection.CarpMovesenseConnectionFlutterApi {
   }
 }
 
-class _RequestApi implements request.CarpMovesenseRequestFlutterApi {
+class _RequestApi implements request.MovesenseRequestFlutterApi {
   _RequestApi(this.router);
 
   final PigeonEventRouter router;
@@ -161,7 +161,7 @@ class _RequestApi implements request.CarpMovesenseRequestFlutterApi {
 }
 
 class _SubscriptionApi
-    implements subscription.CarpMovesenseSubscriptionFlutterApi {
+    implements subscription.MovesenseSubscriptionFlutterApi {
   _SubscriptionApi(this.router);
 
   final PigeonEventRouter router;

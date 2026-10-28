@@ -1,15 +1,16 @@
 import 'dart:async';
 import 'dart:convert';
 
-import '../carp_movesense_flutter_platform_interface.dart';
-import 'carp_movesense_client.dart';
+import '../movesense_plus_platform_interface.dart';
+import 'movesense_client.dart';
+import 'movesense_device.dart';
 import 'movesense_models.dart';
 
 const String _mdsPrefix = 'suunto://';
 
 /// mdsflutter-compatible static API backed by the CARP Pigeon implementation.
 class Mds {
-  static final CarpMovesenseFlutter _client = CarpMovesenseFlutter();
+  static final Movesense _client = Movesense();
   static final _connectionCallbacks = <String, _ConnectionCallbacks>{};
   static final _disconnecting = <String>{};
 
@@ -102,7 +103,7 @@ class Mds {
     void Function(String data) onNotification,
     void Function(String error, int statusCode) onSubscriptionError,
   ) {
-    return CarpMovesenseFlutterPlatform.instance.subscribe(
+    return MovesensePlatform.instance.subscribe(
       uri,
       contract,
       onSubscribe: (response) => onSuccess(response.body, response.statusCode),
@@ -114,7 +115,7 @@ class Mds {
 
   /// Stops an MDS subscription returned by [subscribe].
   static void unsubscribe(int subscriptionId) {
-    unawaited(CarpMovesenseFlutterPlatform.instance.unsubscribe(subscriptionId));
+    unawaited(MovesensePlatform.instance.unsubscribe(subscriptionId));
   }
 
   static String createRequestUri(String serial, String resource) {
