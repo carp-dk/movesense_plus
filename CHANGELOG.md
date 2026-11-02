@@ -1,3 +1,7 @@
+## 2.0.1
+
+* Updates README.md
+
 ## 2.0.0
 
 * **BREAKING**: `movesense_plus` is now the Pigeon-based plugin previously published as `carp_movesense_flutter`, replacing the `mdsflutter`-based 1.x releases
