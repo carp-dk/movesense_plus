@@ -1,3 +1,7 @@
+## 2.0.2
+
+* iOS: `connect` to a device MDS is already connected to (auto-reconnected, or restored by iOS after an app relaunch) now reports `connected` again instead of waiting forever
+
 ## 2.0.1
 
 * Updates README.md

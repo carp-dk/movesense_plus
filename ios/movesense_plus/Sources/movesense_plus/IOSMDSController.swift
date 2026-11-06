@@ -81,6 +81,12 @@ final class IOSMDSController {
             callbacks.connection(type: "error", address: address, error: "Invalid device UUID.")
             return
         }
+        // MDS may already hold the link, e.g. auto-reconnected or restored by iOS after a relaunch.
+        // Its ConnectedDevices event has then passed, so report it again.
+        if let serial = serialToAddress.first(where: { UUID(uuidString: $0.value) == uuid })?.key {
+            callbacks.connection(type: "connected", address: address, serial: serial)
+            return
+        }
         scanner.setScanEnabled(false)
         mds.connectPeripheral(with: uuid)
         scanner.connectForBleEvent(address: address)

@@ -1,6 +1,6 @@
 name: movesense_plus
 description: "A Flutter plugin for Movesense sensors. Bundles the Movesense MDS SDK and provides scanning, connection, typed sensor data streams and raw MDS requests."
-version: 2.0.1
+version: 2.0.2
 homepage: https://github.com/carp-dk/movesense_plus
 repository: https://github.com/carp-dk/movesense_plus
 issue_tracker: https://github.com/carp-dk/movesense_plus/issues
